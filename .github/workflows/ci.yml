@@ -1,0 +1,17 @@
+name: CI
+
+on: push
+
+jobs:
+  lint:
+    name: Run tests in example/main
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install modules
+        run: cd example/main && yarn
+
+      - name: Run tests
+        run: cd example/main && yarn test
